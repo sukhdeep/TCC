@@ -1,0 +1,32 @@
+<html>
+
+	<h1>Add Job</h1>
+
+ <label for="id_search">Type of work:</label><select name="form" ONCHANGE="location =
+this.options[this.selectedIndex].value;">
+	<option value="">Select Work</option>
+{% for reports in report %}
+  <option value="http://localhost/automation/tcc11_12/select/?id={{reports.id}}">{{reports.name}}</option>
+	{% endfor %}
+</select>
+ 
+<h2>Type of work done (explained in brief)</h2>
+
+Lab works are :
+{% if mat %}
+	{% for material in mat %}
+ 		{% if material.report_id == 2 %}
+		<ul><li>{{material.name}}</li></ul>
+		{% endif %}
+	{% endfor %}
+{% endif %}
+Field works are : 
+{% if mat %}
+	{% for material in mat %}
+		{% if material.report_id == 1 %}		
+		<ul><li>{{material.name}}</li></ul>
+		{% endif %}
+	{% endfor %}
+{% endif %}
+</div>
+</html>

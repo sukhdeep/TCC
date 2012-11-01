@@ -1,0 +1,63 @@
+{% load i18n %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <link rel="stylesheet" href="http://192.168.15.15/~daman/style4.css" />
+    <title>{% block title %}User test{% endblock %}</title>
+    
+</head>
+
+<body>
+<div id="wrapper">
+	 
+    <div id="header">
+		<div id="headerbar">
+	<div id="search"><font color="white">
+        {% block header %}
+	<a href="http://192.168.15.15/automation/tcc11_12/index/"><font color="white">{% trans "Home" %}</font></a> | 
+
+	{% if user.is_authenticated %}
+	{% trans "Logged in" %}: {{ user.username }} 
+	(<a href="{% url auth_logout %}"><font color="white">{% trans "Log out" %}</font></a> | 
+	<a href="{% url auth_password_change %}"><font color="white">{% trans "Change password" %}</font></a>)
+	{% else %}
+	<a href="{% url auth_login %}"><font color="white">{% trans "Log in" %}</font></a>
+	{% endif %}
+        {% endblock %}</font>
+	</div>
+	<div id="logo">
+		
+	</div>
+  
+  </div>
+    </div>
+	<div id="splash">
+	<img src="http://192.168.15.15/~daman/aw.jpg" width="1100" height="250" alt="" />
+	</div>			
+    <div id="content">
+        {% block content %}{% endblock %}
+       </div>
+
+				<div id="sidebar">
+					<div class="post">
+						<h3>DEVELOPERS</h3>
+						<a href="http://damanpreet.co.cc/">Damanpreet Singh</a><br /><a href="http://sandymadaan.wordpress.com/">Sandeep Kaur</a><br /><a href="http://sukhdeepsarabha.wordpress.com/">Sukhdeep Kaur</a><br /><a href="http://satindergoraya.blogspot.in/">Satinderpal Singh</a>
+
+					</div>
+					<div class="MENTORS">
+						<h3>MENTORS</h3><a href="http://hs.raiandrai.com/">H.S. Rai</a><br /><a href="http://jagdeepmalhi.blogspot.in/">Jagdeep Singh</a>
+						
+					</div>
+				</div>
+    
+
+<div id="footer">
+        {% block footer %}
+        <hr />
+        {% endblock %}
+    </div>
+</body>
+
+</html>
